@@ -355,34 +355,48 @@ a { text-decoration: none; }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 48px; }
-  .hero h2 { font-size: 22px; }
+  .nav-eu-flag { height: 32px; padding: 2px 4px; }
+  .nav-inner { padding: 0 16px; }
+  .hero h1 { font-size: 42px; letter-spacing: -1px; }
+  .hero h2 { font-size: 20px; }
+  .hero-desc { font-size: 15px; }
   .nav-links { display: none; }
-  .nav-right .nav-cta { margin-left: 0; }
+  .nav-right .nav-cta { margin-left: 0; font-size: 12px; padding: 8px 14px; }
   .section { padding: 64px 20px; }
-  .hero { padding: 100px 20px 60px; }
-  .hero-stats { flex-wrap: wrap; }
-  .hero-stat { min-width: 45%; }
-  .challenges { padding: 48px 20px; }
-  .innovation { padding: 64px 20px; }
+  .hero { padding: 90px 16px 50px; }
+  .hero-badges { gap: 8px; }
+  .eu-badge { padding: 4px 10px; }
+  .eu-badge span { font-size: 10px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .hero-stat { min-width: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 14px 12px; }
+  .hero-stat:last-child { grid-column: span 2; }
+  .challenges { padding: 48px 16px; }
+  .challenges-grid { grid-template-columns: 1fr; }
+  .innovation { padding: 64px 16px; }
   .innovation-grid { grid-template-columns: 1fr; }
-  .innovation-intro h2 { font-size: 30px; }
-  .partners { padding: 64px 20px; }
+  .innovation-intro h2 { font-size: 28px; }
+  .innovation-card { flex-direction: column; gap: 12px; }
+  .partners { padding: 64px 16px; }
   .partners-grid { grid-template-columns: 1fr; }
-  .partners-header h2 { font-size: 30px; }
-  .exploitation { padding: 64px 20px; }
+  .partners-header h2 { font-size: 28px; }
+  .partners-logos img { height: 36px; padding: 6px 12px; }
+  .exploitation { padding: 64px 16px; }
   .exploitation-grid { grid-template-columns: 1fr; }
-  .exploitation-intro h2 { font-size: 30px; }
-  .eu-value-banner { padding: 28px; flex-direction: column; }
-  .faq { padding: 64px 20px; }
-  .faq h2 { font-size: 28px; }
-  .contact { padding: 64px 20px; }
-  .contact h2 { font-size: 28px; }
-  .eu-funding-bar { flex-direction: column; align-items: flex-start; }
-  .eu-funding-bar-left { flex-wrap: wrap; }
-  .footer { padding: 32px 20px; }
-  .footer-inner { flex-direction: column; text-align: center; }
+  .exploitation-intro h2 { font-size: 28px; }
+  .eu-value-banner { padding: 24px 16px; flex-direction: column; }
+  .faq { padding: 64px 16px; }
+  .faq h2 { font-size: 26px; }
+  .faq-btn { padding: 16px; }
+  .contact { padding: 64px 16px; }
+  .contact h2 { font-size: 26px; }
+  .eu-funding-bar { flex-direction: column; align-items: center; padding: 20px 16px; }
+  .eu-funding-bar-left { flex-wrap: wrap; justify-content: center; }
+  .eu-funding-bar-left img { height: 52px; }
+  .footer { padding: 28px 16px; }
+  .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
   .footer-left { flex-wrap: wrap; justify-content: center; }
+  .footer-left img { height: 36px; }
+  .footer-logos { flex-wrap: wrap; justify-content: center; }
 }
 </style>
 </head>
