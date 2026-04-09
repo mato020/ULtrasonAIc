@@ -353,6 +353,33 @@ a { text-decoration: none; }
 .footer-logo-box img { height: 24px; width: auto; object-fit: contain; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,.35); }
 
+/* ── Hamburger & Mobile Menu ───────────────────── */
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  padding: 6px; flex-direction: column; gap: 5px; z-index: 300;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: #fff;
+  border-radius: 2px; transition: transform .3s, opacity .3s;
+}
+.nav.scrolled .hamburger span { background: var(--dark); }
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.mobile-menu {
+  display: none; flex-direction: column;
+  background: rgba(255,255,255,.98); backdrop-filter: blur(12px);
+  padding: 8px 24px 20px; border-top: 1px solid var(--border);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu button {
+  background: none; border: none; border-bottom: 1px solid var(--border);
+  padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--dark);
+  text-align: left; cursor: pointer;
+}
+.mobile-menu button:last-child { border-bottom: none; }
+.mobile-menu button:active { color: var(--cyan); }
+
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
   .nav-eu-flag { height: 32px; padding: 2px 4px; }
@@ -362,6 +389,8 @@ a { text-decoration: none; }
   .hero-desc { font-size: 15px; }
   .nav-links { display: none; }
   .nav-right .nav-cta { margin-left: 0; font-size: 12px; padding: 8px 14px; }
+  .hamburger { display: flex; }
+  .nav-right .nav-cta { display: none; }
   .section { padding: 64px 20px; }
   .hero { padding: 90px 16px 50px; }
   .hero-badges { gap: 8px; }
@@ -419,7 +448,18 @@ a { text-decoration: none; }
     </div>
     <div class="nav-right">
       <button class="nav-cta" onclick="scrollToSection('contact')">Contact</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="scrollToSection('overview');toggleMenu()">Project</button>
+    <button onclick="scrollToSection('innovation');toggleMenu()">Innovation</button>
+    <button onclick="scrollToSection('partners');toggleMenu()">Consortium</button>
+    <button onclick="scrollToSection('exploitation');toggleMenu()">Exploitation</button>
+    <button onclick="scrollToSection('faq');toggleMenu()">FAQ</button>
+    <button onclick="scrollToSection('contact');toggleMenu()">Contact</button>
   </div>
 </nav>
 
@@ -430,11 +470,6 @@ a { text-decoration: none; }
   </div>
   <div class="hero-content">
     <div class="hero-badges">
-      <div class="eu-badge">
-        <span class="stars">★★★★★</span>
-        <span>EFRE/JTF NRW 2021-2027</span>
-      </div>
-      <span class="pill pill-yellow">Industrie.IN.NRW</span>
       <div class="status-badge">
         <div class="status-dot"></div>
         <span id="pmStatus">Active - PM 0.0 / 36</span>
@@ -1043,6 +1078,12 @@ document.getElementById("pmStatus").textContent = "Active - PM " + pm.toFixed(1)
 document.getElementById("progressBar").style.width = pct + "%";
 
 // ── Scroll nav ──
+// ── Mobile menu ──
+function toggleMenu() {
+  document.getElementById("hamburger").classList.toggle("open");
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+
 function scrollToSection(id) {
   var el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth" });
