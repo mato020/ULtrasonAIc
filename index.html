@@ -347,7 +347,6 @@ a { text-decoration: none; }
 .footer-sub { font-size: 11px; color: rgba(255,255,255,.35); }
 .footer-logos { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; }
 .footer-logo-box {
-.footer-logos-row { display: flex; gap: 10px; align-items: center; }
   background: rgba(255,255,255,.92); border-radius: 6px; padding: 5px 10px;
   display: flex; align-items: center;
 }
@@ -383,6 +382,9 @@ a { text-decoration: none; }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
+  body { overflow-x: hidden; }
+  .hero-stars-bg { display: none; }
+  .hero-content { max-width: 100%; }
   .nav-eu-flag { height: 32px; padding: 2px 4px; }
   .nav-inner { padding: 0 16px; }
   .hero h1 { font-size: 42px; letter-spacing: -1px; }
@@ -409,6 +411,8 @@ a { text-decoration: none; }
   .partners { padding: 64px 16px; }
   .partners-grid { grid-template-columns: 1fr; }
   .partners-header h2 { font-size: 28px; }
+  .budget-bar-wrap { padding: 20px 16px; }
+  .budget-legend { flex-direction: column; gap: 8px; }
   .partners-logos img { height: 36px; padding: 6px 12px; }
   .exploitation { padding: 64px 16px; }
   .exploitation-grid { grid-template-columns: 1fr; }
